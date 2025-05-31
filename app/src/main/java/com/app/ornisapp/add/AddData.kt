@@ -2,6 +2,7 @@ package com.app.ornisapp.add
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
@@ -13,9 +14,18 @@ import com.app.ornisapp.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import kotlin.time.times
 
 class AddData : AppCompatActivity() {
     private lateinit var date:TextView
+    private lateinit var item_name:EditText
+    private lateinit var item_quantity:EditText
+    private lateinit var item_perunit:EditText
+    private lateinit var item_totalamount:EditText
+    private lateinit var item_payment:EditText
+    private lateinit var item_remarks:EditText
+    private lateinit var save:Button
+
     private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,12 +33,26 @@ class AddData : AppCompatActivity() {
         setContentView(R.layout.activity_add_data)
 
         date=findViewById(R.id.date)
+        item_name=findViewById(R.id.item_name)
+        item_quantity=findViewById(R.id.item_quantity)
+        item_perunit=findViewById(R.id.item_perunit)
+        item_totalamount=findViewById(R.id.item_totalamount)
+        item_payment=findViewById(R.id.item_payment)
+        item_remarks=findViewById(R.id.item_remarks)
+        save=findViewById(R.id.save)
 
         date.setOnClickListener {
             showDatePicker()
         }
 
+        save.setOnClickListener {
 
+            val quant = item_quantity.text.toString().toInt()
+            val unit = item_perunit.text.toString().toInt()
+
+            val result = quant * unit
+            item_totalamount.setText(result.toString())
+        }
 
     }
 
