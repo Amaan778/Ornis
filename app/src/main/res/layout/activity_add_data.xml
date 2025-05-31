@@ -41,13 +41,12 @@
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/black"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background"
                 android:padding="@dimen/_9sdp"
-                android:editable="false"
                 android:hint="Enter Your Date"/>
 
             <TextView
