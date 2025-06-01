@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "353302912816",
+    "project_id": "ornisapp-e798d",
+    "storage_bucket": "ornisapp-e798d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353302912816:android:137fb13a1d84f9681672f5",
+        "android_client_info": {
+          "package_name": "com.app.ornisapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYtSB5XTcAWClPZjQT5fmd_Wdt0PzF33A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

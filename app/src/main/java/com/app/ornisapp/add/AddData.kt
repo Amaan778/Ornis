@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.app.ornisapp.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 import kotlin.time.times
 
@@ -25,6 +26,7 @@ class AddData : AppCompatActivity() {
     private lateinit var item_payment:EditText
     private lateinit var item_remarks:EditText
     private lateinit var save:Button
+    private lateinit var months:TextView
 
     private val calendar = Calendar.getInstance()
 
@@ -40,10 +42,12 @@ class AddData : AppCompatActivity() {
         item_payment=findViewById(R.id.item_payment)
         item_remarks=findViewById(R.id.item_remarks)
         save=findViewById(R.id.save)
+        months=findViewById(R.id.month)
 
         date.setOnClickListener {
             showDatePicker()
         }
+
 
         save.setOnClickListener {
 
@@ -71,6 +75,10 @@ class AddData : AppCompatActivity() {
                 // Format and display date
                 val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                 date.text = format.format(calendar.time)
+
+                // TextView 2: Show month only
+                val monthFormat = SimpleDateFormat("MMMM", Locale.getDefault())
+                months.text = monthFormat.format(calendar.time)
             }, year, month, day)
 
         datePickerDialog.show()
