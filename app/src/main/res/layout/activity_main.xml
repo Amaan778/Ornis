@@ -38,6 +38,13 @@
         android:orientation="vertical"
         android:background="@drawable/curved">
 
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Data"
+            android:layout_margin="9dp"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -116,11 +123,5 @@
         </ScrollView>
 
     </LinearLayout>
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Data"
-        android:layout_margin="9dp"/>
 
 </LinearLayout>

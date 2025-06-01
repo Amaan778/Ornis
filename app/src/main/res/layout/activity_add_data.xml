@@ -154,7 +154,24 @@
                 android:layout_marginTop="@dimen/_6sdp"/>
 
             <EditText
-                android:id="@+id/item_remarks"
+                android:id="@+id/item_profitpercent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:padding="@dimen/_9sdp"
+                android:hint="Enter Your Date"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Remarks"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_6sdp"/>
+
+            <EditText
+                android:id="@+id/item_profitamount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/background"
