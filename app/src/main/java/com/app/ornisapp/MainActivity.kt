@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                total.text = "Total Sales: ₹$totalAmountSum"
+                total.text = "$totalAmountSum"
             }
 
             override fun onCancelled(error: DatabaseError) {
