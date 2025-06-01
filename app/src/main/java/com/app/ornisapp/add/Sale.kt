@@ -6,5 +6,7 @@ data class Sale(
     val pricePerUnit: Int = 0,
     val totalAmount: Int = 0,
     val paymentMode: String = "",
-    val remarks: String = ""
+    val profitPercent: Double = 0.0,
+    val profitAmount: Int = 0
 )
+

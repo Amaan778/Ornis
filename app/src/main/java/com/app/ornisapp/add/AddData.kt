@@ -26,7 +26,8 @@ class AddData : AppCompatActivity() {
     private lateinit var item_perunit:EditText
     private lateinit var item_totalamount:EditText
     private lateinit var item_payment:EditText
-    private lateinit var item_remarks:EditText
+    private lateinit var item_profitpercent:EditText
+    private lateinit var item_profitamount:EditText
     private lateinit var save:Button
     private lateinit var months:TextView
 
@@ -42,7 +43,8 @@ class AddData : AppCompatActivity() {
         item_perunit=findViewById(R.id.item_perunit)
         item_totalamount=findViewById(R.id.item_totalamount)
         item_payment=findViewById(R.id.item_payment)
-        item_remarks=findViewById(R.id.item_remarks)
+        item_profitpercent=findViewById(R.id.item_profitpercent)
+        item_profitamount=findViewById(R.id.item_profitamount)
         save=findViewById(R.id.save)
         months=findViewById(R.id.month)
 
@@ -54,22 +56,29 @@ class AddData : AppCompatActivity() {
 
 
         save.setOnClickListener {
+
             // Get input values safely
             val itemName = item_name.text.toString().trim()
             val itemQuantityStr = item_quantity.text.toString().trim()
             val itemPerUnitStr = item_perunit.text.toString().trim()
             val paymentMode = item_payment.text.toString().trim()
-            val remarks = item_remarks.text.toString().trim()
+            val profitPercentStr = item_profitpercent.text.toString().trim()
+            val profitAmountStr = item_profitamount.text.toString().trim()
             val month = months.text.toString().trim()
-            val dateStr = date.text.toString().trim()  // renamed variable to avoid conflict with view 'date'
+            val dateStr = date.text.toString().trim()  // Avoid naming conflict
 
 // Convert quantity and price per unit safely, defaulting to 0
             val quantity = itemQuantityStr.toIntOrNull() ?: 0
             val perUnit = itemPerUnitStr.toIntOrNull() ?: 0
+            val profitPercent = profitPercentStr.toDoubleOrNull() ?: 0.0
 
 // Calculate total amount
             val total = quantity * perUnit
             item_totalamount.setText(total.toString())
+
+// Calculate profit amount if profit percent is valid
+            val profitAmount = ((total * profitPercent) / 100).toInt()
+            item_profitamount.setText(profitAmount.toString())
 
 // Validation
             if (itemName.isEmpty()) {
@@ -82,17 +91,20 @@ class AddData : AppCompatActivity() {
                 item_totalamount.error = "Required"
             } else if (paymentMode.isEmpty()) {
                 item_payment.error = "Required"
-            } else if (remarks.isEmpty()) {
-                item_remarks.error = "Required"
+            } else if (profitPercentStr.isEmpty()) {
+                item_profitpercent.error = "Required"
+            } else if (profitAmount == 0) {
+                item_profitamount.error = "Invalid %"
             } else {
-                // Create sale object using your data class
+                // Create sale object using your updated data class (include profit if needed)
                 val sale = Sale(
                     itemName = itemName,
                     quantity = quantity,
                     pricePerUnit = perUnit,
                     totalAmount = total,
                     paymentMode = paymentMode,
-                    remarks = remarks
+                    profitPercent = profitPercent,
+                    profitAmount = profitAmount
                 )
 
                 // Save to Firebase Realtime Database
@@ -108,9 +120,6 @@ class AddData : AppCompatActivity() {
                         Toast.makeText(this, "Failed to save sale: ${it.message}", Toast.LENGTH_SHORT).show()
                     }
             }
-
-
-
         }
 
     }
