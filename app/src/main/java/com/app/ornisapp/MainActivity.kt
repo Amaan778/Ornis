@@ -31,21 +31,54 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,AddData::class.java))
         }
 
-        val database = FirebaseDatabase.getInstance().reference
-        val month = "June"  // Or dynamically get it from your UI
+        fetchTotalSalesForMonth("June")
 
-// Reference to the sales for the given month
+//        val database = FirebaseDatabase.getInstance().reference
+//        val month = "June"  // Or dynamically get it from your UI
+//
+//// Reference to the sales for the given month
+//        val salesMonthRef = database.child("sales").child(month)
+//
+//        salesMonthRef.addListenerForSingleValueEvent(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                var totalAmountSum = 0
+//
+//                // Loop through all dates under this month
+//                for (dateSnapshot in snapshot.children) {
+//                    // Loop through all sales under the date
+//                    for (saleSnapshot in dateSnapshot.children) {
+//                        // Get Sale object (make sure your Sale class matches structure)
+//                        val sale = saleSnapshot.getValue(Sale::class.java)
+//                        if (sale != null) {
+//                            totalAmountSum += sale.totalAmount
+//                        }
+//                    }
+//                }
+//
+//                // Now totalAmountSum contains sum of all totalAmount in the month
+//                Toast.makeText(this@MainActivity, "Total sales in $month: $totalAmountSum", Toast.LENGTH_LONG).show()
+//
+//                // Or update a TextView
+//                total.text = "Total Sales: $totalAmountSum"
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Toast.makeText(this@MainActivity, "Failed to load sales: ${error.message}", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+
+
+    }
+    private fun fetchTotalSalesForMonth(month: String) {
+        val database = FirebaseDatabase.getInstance().reference
         val salesMonthRef = database.child("sales").child(month)
 
         salesMonthRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var totalAmountSum = 0
 
-                // Loop through all dates under this month
                 for (dateSnapshot in snapshot.children) {
-                    // Loop through all sales under the date
                     for (saleSnapshot in dateSnapshot.children) {
-                        // Get Sale object (make sure your Sale class matches structure)
                         val sale = saleSnapshot.getValue(Sale::class.java)
                         if (sale != null) {
                             totalAmountSum += sale.totalAmount
@@ -53,18 +86,23 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                // Now totalAmountSum contains sum of all totalAmount in the month
-                Toast.makeText(this@MainActivity, "Total sales in $month: $totalAmountSum", Toast.LENGTH_LONG).show()
-
-                // Or update a TextView
-                total.text = "Total Sales: $totalAmountSum"
+                total.text = "Total Sales: ₹$totalAmountSum"
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@MainActivity, "Failed to load sales: ${error.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
-
-
     }
+
+    override fun onResume() {
+        super.onResume()
+        fetchTotalSalesForMonth("June") // Or pass dynamic month
+    }
+
+    override fun onStart() {
+        super.onStart()
+        fetchTotalSalesForMonth("June") // Or pass dynamic month if needed
+    }
+
 }
