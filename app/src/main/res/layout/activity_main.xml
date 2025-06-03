@@ -100,7 +100,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sales"
+                            android:text="Purchase"
                             android:textSize="@dimen/_25sdp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/poppins"/>
@@ -136,13 +136,13 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sales"
+                            android:text="Profit"
                             android:textSize="@dimen/_25sdp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/poppins"/>
 
                         <TextView
-                            android:id="@+id/total"
+                            android:id="@+id/profit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -164,13 +164,13 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sales"
+                            android:text="Wastage"
                             android:textSize="@dimen/_25sdp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/poppins"/>
 
                         <TextView
-                            android:id="@+id/purchase"
+                            android:id="@+id/wstage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
