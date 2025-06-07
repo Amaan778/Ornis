@@ -89,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/background"
                 android:padding="@dimen/_9sdp"
+                android:inputType="number"
                 android:hint="Enter Your Date"/>
 
             <TextView
@@ -104,6 +105,7 @@
                 android:id="@+id/item_priceperunit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:background="@drawable/background"
                 android:padding="@dimen/_9sdp"
                 android:hint="Enter Your Date"/>
@@ -123,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/background"
                 android:padding="@dimen/_9sdp"
+                android:editable="false"
                 android:hint="Enter Your Date"/>
 
             <TextView
