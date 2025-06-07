@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener
 class MainActivity : AppCompatActivity() {
     private lateinit var btn:Button
     private lateinit var total:TextView
+    private lateinit var profit:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         btn=findViewById(R.id.btn)
         total=findViewById(R.id.total)
+        profit=findViewById(R.id.profit)
 
         btn.setOnClickListener {
             startActivity(Intent(this,AddData::class.java))
