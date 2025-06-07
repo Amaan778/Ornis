@@ -9,6 +9,150 @@
     android:layout_height="match_parent"
     tools:context=".wastage.WastageData">
 
-    
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/theme">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wastage Details"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_20sdp"/>
+
+    </Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="month"
+        android:id="@+id/month"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_9sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:padding="@dimen/_9sdp"
+                android:hint="Enter Your Date"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Name"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_6sdp"/>
+
+            <EditText
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:padding="@dimen/_9sdp"
+                android:hint="Enter Your Date"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item quantity"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_6sdp"/>
+
+            <EditText
+                android:id="@+id/item_quant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:padding="@dimen/_9sdp"
+                android:hint="Enter Your Date"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item price per unit"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_6sdp"/>
+
+            <EditText
+                android:id="@+id/item_priceperunit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:padding="@dimen/_9sdp"
+                android:hint="Enter Your Date"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Loss"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_6sdp"/>
+
+            <EditText
+                android:id="@+id/total_loss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:padding="@dimen/_9sdp"
+                android:hint="Enter Your Date"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reason"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_6sdp"/>
+
+            <EditText
+                android:id="@+id/reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:padding="@dimen/_9sdp"
+                android:hint="Enter Your Date"/>
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:fontFamily="@font/poppins"
+                android:textSize="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_9sdp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
