@@ -45,6 +45,13 @@
             android:text="Add Data"
             android:layout_margin="9dp"/>
 
+        <Button
+            android:id="@+id/wastage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add wastage"
+            android:layout_margin="9dp"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
