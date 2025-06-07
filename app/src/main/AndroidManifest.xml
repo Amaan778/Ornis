@@ -13,6 +13,9 @@
         android:theme="@style/Theme.OrnisApp"
         tools:targetApi="31">
         <activity
+            android:name=".wastage.WastageData"
+            android:exported="false" />
+        <activity
             android:name=".purchase.PurchaseData"
             android:exported="false" />
         <activity
