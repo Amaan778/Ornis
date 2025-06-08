@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.app.ornisapp.add.AddData
 import com.app.ornisapp.add.Sale
+import com.app.ornisapp.purchase.PurchaseData
 import com.app.ornisapp.wastage.WastageData
 import com.app.ornisapp.wastage.Waste
 import com.google.firebase.database.DataSnapshot
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var wastage:TextView
     private lateinit var profit:TextView
     private lateinit var waste:Button
+    private lateinit var purchasebtn:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         wastage=findViewById(R.id.wstage)
         profit=findViewById(R.id.profit)
         waste=findViewById(R.id.wastage)
+        purchasebtn=findViewById(R.id.purchasebtn)
 
         btn.setOnClickListener {
             startActivity(Intent(this,AddData::class.java))
@@ -41,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         waste.setOnClickListener {
             startActivity(Intent(this,WastageData::class.java))
+        }
+
+        purchasebtn.setOnClickListener {
+            startActivity(Intent(this,PurchaseData::class.java))
         }
 
         fetchTotalSales()
