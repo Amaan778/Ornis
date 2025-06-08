@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -14,6 +15,7 @@ import com.app.ornisapp.add.AddData
 import com.app.ornisapp.add.Sale
 import com.app.ornisapp.purchase.Purchase
 import com.app.ornisapp.purchase.PurchaseData
+import com.app.ornisapp.salesgrap.SalesData
 import com.app.ornisapp.wastage.WastageData
 import com.app.ornisapp.wastage.Waste
 import com.github.mikephil.charting.charts.PieChart
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var purchasebtn: Button
     private lateinit var purchase: TextView
     private lateinit var pieChart: PieChart
+    private lateinit var saleslinear:LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         purchasebtn = findViewById(R.id.purchasebtn)
         purchase = findViewById(R.id.purchase)
         pieChart = findViewById(R.id.pieChart)
+        saleslinear=findViewById(R.id.saleslinear)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
@@ -59,6 +63,10 @@ class MainActivity : AppCompatActivity() {
 
         purchasebtn.setOnClickListener {
             startActivity(Intent(this, PurchaseData::class.java))
+        }
+
+        saleslinear.setOnClickListener {
+            startActivity(Intent(this,SalesData::class.java))
         }
     }
 
