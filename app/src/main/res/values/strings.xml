@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">OrnisApp</string>
     <string-array name="time_filters">
+        <item>Daily</item>
         <item>Weekly</item>
         <item>Monthly</item>
         <item>Quarterly</item>
     </string-array>
+
 </resources>
