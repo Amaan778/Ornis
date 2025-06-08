@@ -1,6 +1,7 @@
 package com.app.ornisapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -15,6 +16,11 @@ import com.app.ornisapp.purchase.Purchase
 import com.app.ornisapp.purchase.PurchaseData
 import com.app.ornisapp.wastage.WastageData
 import com.app.ornisapp.wastage.Waste
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -57,6 +63,44 @@ class MainActivity : AppCompatActivity() {
         fetchwastage()
         fetchpurchase()
         fetchAndCalculateProfit()
+
+        val pieChart = findViewById<PieChart>(R.id.pieChart)
+
+        val totalText = total.text.toString().replace("₹", "").trim()
+        val purchaseText = purchase.text.toString().replace("₹", "").trim()
+        val wastageText = wastage.text.toString().replace("₹", "").trim()
+        val profitText = profitvalue.text.toString().replace("₹", "").trim()
+
+        val totalFloat = totalText.toFloatOrNull() ?: 0f
+        val purchaseFloat = purchaseText.toFloatOrNull() ?: 0f
+        val wastageFloat = wastageText.toFloatOrNull() ?: 0f
+        val profitFloat = profitText.toFloatOrNull() ?: 0f
+
+
+// Pie Entries
+        val entries = ArrayList<PieEntry>()
+        entries.add(PieEntry(totalFloat, "Sales"))
+        entries.add(PieEntry(purchaseFloat, "Purchase"))
+        entries.add(PieEntry(wastageFloat, "Wastage"))
+        entries.add(PieEntry(profitFloat, "Profit"))
+
+
+// Pie DataSet
+        val dataSet = PieDataSet(entries, "Business Overview")
+        dataSet.colors = ColorTemplate.MATERIAL_COLORS.toList()
+        dataSet.valueTextColor = Color.BLACK
+        dataSet.valueTextSize = 14f
+
+// Pie Data
+        val pieData = PieData(dataSet)
+
+        pieChart.data = pieData
+        pieChart.description.isEnabled = false
+        pieChart.centerText = "Profit Analysis"
+        pieChart.setCenterTextSize(16f)
+        pieChart.animateY(1000)
+        pieChart.invalidate()
+
 
     }
 
