@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btn:Button
     private lateinit var total:TextView
     private lateinit var wastage:TextView
-    private lateinit var profit:TextView
+    private lateinit var profitvalue:TextView
     private lateinit var waste:Button
     private lateinit var purchasebtn:Button
     private lateinit var purchase:TextView
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         btn=findViewById(R.id.btn)
         total=findViewById(R.id.total)
         wastage=findViewById(R.id.wstage)
-        profit=findViewById(R.id.profit)
+        profitvalue=findViewById(R.id.profit)
         waste=findViewById(R.id.wastage)
         purchasebtn=findViewById(R.id.purchasebtn)
         purchase=findViewById(R.id.purchase)
@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         fetchTotalSales()
         fetchwastage()
         fetchpurchase()
+        fetchAndCalculateProfit()
 
     }
 
@@ -174,6 +175,7 @@ class MainActivity : AppCompatActivity() {
         fetchTotalSales()
         fetchwastage()
         fetchpurchase()
+        fetchAndCalculateProfit()
 //        fetchTotalSalesForMonth("June") // Or pass dynamic month
     }
 
@@ -182,7 +184,78 @@ class MainActivity : AppCompatActivity() {
         fetchTotalSales()
         fetchwastage()
         fetchpurchase()
+        fetchAndCalculateProfit()
 //        fetchTotalSalesForMonth("June") // Or pass dynamic month if needed
+    }
+
+    private fun fetchAndCalculateProfit() {
+        val database = FirebaseDatabase.getInstance().reference
+
+        var totalSales = 0
+        var totalPurchase = 0
+        var totalWastage = 0
+
+        // Sales
+        database.child("sales").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (monthSnap in snapshot.children) {
+                    for (dateSnap in monthSnap.children) {
+                        for (saleSnap in dateSnap.children) {
+                            val totalAmount = saleSnap.child("totalAmount").getValue(Int::class.java) ?: 0
+                            totalSales += totalAmount
+                        }
+                    }
+                }
+                total.text = "₹$totalSales"
+
+                // Purchase
+                database.child("purchase").addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        for (monthSnap in snapshot.children) {
+                            for (dateSnap in monthSnap.children) {
+                                for (purchaseSnap in dateSnap.children) {
+                                    val totalAmount = purchaseSnap.child("totalAmount").getValue(Int::class.java) ?: 0
+                                    totalPurchase += totalAmount
+                                }
+                            }
+                        }
+                        purchase.text = "₹$totalPurchase"
+
+                        database.child("wastage").addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                for (monthSnap in snapshot.children) {
+                                    for (dateSnap in monthSnap.children) {
+                                        for (wasteSnap in dateSnap.children) {
+                                            val waste = wasteSnap.getValue(Waste::class.java)
+                                            if (waste != null) {
+                                                totalWastage += waste.totalLoss
+                                            }
+                                        }
+                                    }
+                                }
+                                wastage.text = "₹$totalWastage"
+
+                                // Now calculate profit
+                                val profit = totalSales - totalPurchase - totalWastage
+                                profitvalue.text = "₹$profit"
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                Toast.makeText(this@MainActivity, "Wastage error: ${error.message}", Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(this@MainActivity, "Purchase error: ${error.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@MainActivity, "Sales error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 }
