@@ -52,6 +52,13 @@
             android:text="Add wastage"
             android:layout_margin="9dp"/>
 
+        <Button
+            android:id="@+id/purchasebtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add wastage"
+            android:layout_margin="9dp"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -108,7 +115,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Purchase"
-                            android:textSize="@dimen/_25sdp"
+                            android:textSize="@dimen/_20sdp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/poppins"/>
 
