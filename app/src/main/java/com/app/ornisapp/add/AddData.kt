@@ -93,9 +93,11 @@ class AddData : AppCompatActivity() {
                 item_payment.error = "Required"
             } else if (profitPercentStr.isEmpty()) {
                 item_profitpercent.error = "Required"
-            } else if (profitAmount == 0) {
+            }
+            else if (profitAmount == 0) {
                 item_profitamount.error = "Invalid %"
-            } else {
+            }
+            else {
                 // Create sale object using your updated data class (include profit if needed)
                 val sale = Sale(
                     itemName = itemName,

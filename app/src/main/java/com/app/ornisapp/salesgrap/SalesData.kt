@@ -32,7 +32,7 @@ class SalesData : AppCompatActivity() {
     private lateinit var timeFilterSpinner: Spinner
 
     enum class TimeRange {
-        WEEKLY, MONTHLY, QUARTERLY
+        DAILY, WEEKLY, MONTHLY, QUARTERLY
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,10 +54,12 @@ class SalesData : AppCompatActivity() {
         timeFilterSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 when (parent.getItemAtPosition(position).toString()) {
+                    "Daily" -> fetchSalesData(TimeRange.DAILY)
                     "Weekly" -> fetchSalesData(TimeRange.WEEKLY)
                     "Monthly" -> fetchSalesData(TimeRange.MONTHLY)
                     "Quarterly" -> fetchSalesData(TimeRange.QUARTERLY)
                 }
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
@@ -82,10 +84,12 @@ class SalesData : AppCompatActivity() {
                             calendar.time = it
 
                             val label = when (range) {
+                                TimeRange.DAILY -> SimpleDateFormat("dd MMM", Locale.getDefault()).format(it)
                                 TimeRange.WEEKLY -> "Wk ${calendar.get(Calendar.WEEK_OF_YEAR)}"
                                 TimeRange.MONTHLY -> SimpleDateFormat("MMM", Locale.getDefault()).format(it)
                                 TimeRange.QUARTERLY -> "Q${(calendar.get(Calendar.MONTH) / 3) + 1}"
                             }
+
 
                             for (saleSnap in dateSnap.children) {
                                 val totalAmount = saleSnap.child("totalAmount").getValue(Int::class.java) ?: 0
