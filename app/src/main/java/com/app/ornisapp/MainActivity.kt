@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.app.ornisapp.add.AddData
 import com.app.ornisapp.add.Sale
+import com.app.ornisapp.purchase.Purchase
 import com.app.ornisapp.purchase.PurchaseData
 import com.app.ornisapp.wastage.WastageData
 import com.app.ornisapp.wastage.Waste
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var profit:TextView
     private lateinit var waste:Button
     private lateinit var purchasebtn:Button
+    private lateinit var purchase:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         profit=findViewById(R.id.profit)
         waste=findViewById(R.id.wastage)
         purchasebtn=findViewById(R.id.purchasebtn)
+        purchase=findViewById(R.id.purchase)
 
         btn.setOnClickListener {
             startActivity(Intent(this,AddData::class.java))
@@ -52,7 +55,36 @@ class MainActivity : AppCompatActivity() {
 
         fetchTotalSales()
         fetchwastage()
+        fetchpurchase()
 
+    }
+
+    private fun fetchpurchase() {
+        val database = FirebaseDatabase.getInstance().reference
+        val salesRef = database.child("purchase")
+
+        salesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var totalAmountSum = 0
+
+                for (monthSnapshot in snapshot.children) {
+                    for (dateSnapshot in monthSnapshot.children) {
+                        for (saleSnapshot in dateSnapshot.children) {
+                            val purchase = saleSnapshot.getValue(Purchase::class.java)
+                            if (purchase != null) {
+                                totalAmountSum += purchase.totalAmount
+                            }
+                        }
+                    }
+                }
+
+                purchase.text = "$totalAmountSum"
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@MainActivity, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun fetchwastage() {
@@ -141,6 +173,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         fetchTotalSales()
         fetchwastage()
+        fetchpurchase()
 //        fetchTotalSalesForMonth("June") // Or pass dynamic month
     }
 
@@ -148,6 +181,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         fetchTotalSales()
         fetchwastage()
+        fetchpurchase()
 //        fetchTotalSalesForMonth("June") // Or pass dynamic month if needed
     }
 
