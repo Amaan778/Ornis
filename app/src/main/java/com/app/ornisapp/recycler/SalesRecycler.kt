@@ -1,9 +1,11 @@
 package com.app.ornisapp.recycler
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.ornisapp.R
 import com.app.ornisapp.add.Sale
+import com.app.ornisapp.salesgrap.SalesData
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -26,6 +29,7 @@ class SalesRecycler : AppCompatActivity() {
     private lateinit var noDataText: TextView
     private lateinit var adapter: SaleAdapter
     private val salesList = mutableListOf<Pair<String, Sale>>()
+    private lateinit var graph:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,11 @@ class SalesRecycler : AppCompatActivity() {
         monthSpinner = findViewById(R.id.monthSpinner)
         salesRecyclerView = findViewById(R.id.salesRecyclerView)
         noDataText = findViewById(R.id.noDataText)
+        graph=findViewById(R.id.save)
+
+        graph.setOnClickListener {
+            startActivity(Intent(this,SalesData::class.java))
+        }
 
         adapter = SaleAdapter(salesList)
         salesRecyclerView.layoutManager = LinearLayoutManager(this)
