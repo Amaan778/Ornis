@@ -13,6 +13,9 @@
         android:theme="@style/Theme.OrnisApp"
         tools:targetApi="31">
         <activity
+            android:name=".recycler.WastageRecycler"
+            android:exported="false" />
+        <activity
             android:name=".recycler.SalesRecycler"
             android:exported="false" />
         <activity
