@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.ornisapp.R
-import com.app.ornisapp.add.Sale
 import com.app.ornisapp.wastage.Waste
 
 class WastageAdapter(private val list: List<Pair<String, Waste>>) :

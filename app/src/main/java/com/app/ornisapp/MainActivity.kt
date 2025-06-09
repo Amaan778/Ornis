@@ -16,6 +16,7 @@ import com.app.ornisapp.add.Sale
 import com.app.ornisapp.purchase.Purchase
 import com.app.ornisapp.purchase.PurchaseData
 import com.app.ornisapp.recycler.SalesRecycler
+import com.app.ornisapp.recycler.WastageRecycler
 import com.app.ornisapp.salesgrap.SalesData
 import com.app.ornisapp.wastage.WastageData
 import com.app.ornisapp.wastage.Waste
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var purchase: TextView
     private lateinit var pieChart: PieChart
     private lateinit var saleslinear:LinearLayout
+    private lateinit var wastedata:LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         purchase = findViewById(R.id.purchase)
         pieChart = findViewById(R.id.pieChart)
         saleslinear=findViewById(R.id.saleslinear)
+        wastedata=findViewById(R.id.wastedata)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
@@ -68,6 +71,10 @@ class MainActivity : AppCompatActivity() {
 
         saleslinear.setOnClickListener {
             startActivity(Intent(this,SalesRecycler::class.java))
+        }
+
+        wastedata.setOnClickListener {
+            startActivity(Intent(this,WastageRecycler::class.java))
         }
     }
 
