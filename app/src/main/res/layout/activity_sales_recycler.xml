@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,6 +9,7 @@
     tools:context=".recycler.SalesRecycler">
 
     <Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/theme">
@@ -24,6 +25,7 @@
     </Toolbar>
 
     <Spinner
+        android:layout_below="@+id/toolbar"
         android:id="@+id/monthSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,6 +35,7 @@
         android:spinnerMode="dropdown" />
 
     <TextView
+        android:layout_below="@+id/monthSpinner"
         android:id="@+id/noDataText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,10 +47,21 @@
         android:layout_marginTop="@dimen/_12sdp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/monthSpinner"
         android:id="@+id/salesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="@dimen/_3sdp" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="See Graph"
+        android:fontFamily="@font/poppins"
+        android:textSize="@dimen/_20sdp"
+        android:layout_margin="@dimen/_9sdp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
