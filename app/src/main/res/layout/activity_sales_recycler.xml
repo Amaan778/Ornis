@@ -8,10 +8,28 @@
     android:layout_height="match_parent"
     tools:context=".recycler.SalesRecycler">
 
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/theme">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sales Data"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_20sdp"/>
+
+    </Toolbar>
+
     <Spinner
         android:id="@+id/monthSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:layout_margin="@dimen/_9sdp"
+        android:padding="@dimen/_9sdp"
         android:spinnerMode="dropdown" />
 
     <TextView
