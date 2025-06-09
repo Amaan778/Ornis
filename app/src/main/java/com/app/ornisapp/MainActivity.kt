@@ -15,6 +15,7 @@ import com.app.ornisapp.add.AddData
 import com.app.ornisapp.add.Sale
 import com.app.ornisapp.purchase.Purchase
 import com.app.ornisapp.purchase.PurchaseData
+import com.app.ornisapp.recycler.SalesRecycler
 import com.app.ornisapp.salesgrap.SalesData
 import com.app.ornisapp.wastage.WastageData
 import com.app.ornisapp.wastage.Waste
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         saleslinear.setOnClickListener {
-            startActivity(Intent(this,SalesData::class.java))
+            startActivity(Intent(this,SalesRecycler::class.java))
         }
     }
 
