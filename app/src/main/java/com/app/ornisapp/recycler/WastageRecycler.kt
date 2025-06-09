@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.ornisapp.R
 import com.app.ornisapp.add.Sale
 import com.app.ornisapp.salesgrap.SalesData
+import com.app.ornisapp.salesgrap.Wastegraphdata
 import com.app.ornisapp.wastage.Waste
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -42,7 +43,7 @@ class WastageRecycler : AppCompatActivity() {
         graph=findViewById(R.id.save)
 
         graph.setOnClickListener {
-            startActivity(Intent(this, SalesData::class.java))
+            startActivity(Intent(this, Wastegraphdata::class.java))
         }
 
         adapter = WastageAdapter(salesList)
