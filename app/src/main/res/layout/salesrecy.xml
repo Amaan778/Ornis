@@ -19,10 +19,11 @@
             android:layout_margin="@dimen/_9sdp">
 
             <TextView
-                android:id="@+id/itemname"
+                android:id="@+id/recy_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Item Name"
+                android:gravity="center"
                 android:fontFamily="@font/poppins"
                 android:textSize="@dimen/_20sdp"/>
 
@@ -48,6 +49,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/rec_quant"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1000"
@@ -72,6 +74,7 @@
                         android:layout_gravity="center"/>
 
                     <TextView
+                        android:id="@+id/rec_priceperunit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1000"
@@ -98,6 +101,7 @@
                     android:layout_gravity="center"/>
 
                 <TextView
+                    android:id="@+id/rec_totalamount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1000"
