@@ -140,6 +140,7 @@
                     android:layout_margin="@dimen/_9sdp">
 
                     <LinearLayout
+                        android:id="@+id/profitlinear"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
