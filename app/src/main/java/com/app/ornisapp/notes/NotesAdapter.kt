@@ -31,7 +31,9 @@ class NotesAdapter(private val context: Context,private val userlist:List<NotesD
         holder.idss.text=surrentlis.id
 
         holder.itemView.setOnClickListener {
-            val intent=Intent(context)
+            val intent=Intent(context,NotesDetail::class.java)
+            intent.putExtra("id",userlist[position].id)
+            context.startActivity(intent)
             Toast.makeText(context,"Clciking",Toast.LENGTH_LONG).show()
         }
 
