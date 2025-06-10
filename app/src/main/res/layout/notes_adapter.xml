@@ -26,7 +26,8 @@
             android:text="Title"
             android:textSize="@dimen/_20sdp"
             android:fontFamily="@font/poppins"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/_9sdp"/>
 
     </LinearLayout>
 
