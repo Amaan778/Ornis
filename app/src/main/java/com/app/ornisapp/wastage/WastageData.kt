@@ -87,6 +87,7 @@ class WastageData : AppCompatActivity() {
             .setValue(wastage)
             .addOnSuccessListener {
                 Toast.makeText(this, "Wastage saved: ₹$totalLoss loss", Toast.LENGTH_SHORT).show()
+                clearFields()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed: ${it.message}", Toast.LENGTH_SHORT).show()
@@ -115,5 +116,14 @@ class WastageData : AppCompatActivity() {
             }, year, month, day)
 
         datePickerDialog.show()
+    }
+    private fun clearFields() {
+        item_name.text.clear()
+        item_quant.text.clear()
+        item_priceperunit.text.clear()
+        total_loss.setText("")
+        reason.text.clear()
+        date.text = ""
+        months.text = ""
     }
 }
