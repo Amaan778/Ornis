@@ -8,6 +8,52 @@
     android:layout_height="match_parent"
     tools:context=".notes.NotesDetail">
 
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/theme">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notes Detail"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_20sdp"/>
+
+    </Toolbar>
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:padding="@dimen/_9sdp"
+        android:layout_margin="@dimen/_9sdp"
+        android:fontFamily="@font/poppins"
+        android:hint="Enter your title"/>
+
+    <EditText
+        android:id="@+id/datadescription"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:background="@drawable/background"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:padding="@dimen/_9sdp"
+        android:inputType="textMultiLine"
+        android:minEms="1"
+        android:fontFamily="@font/poppins"
+        android:gravity="top"
+        android:scrollbars="vertical"
+        android:hint="Enter your description"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:fontFamily="@font/poppins"
+        android:textSize="@dimen/_20sdp"
+        android:layout_margin="@dimen/_9sdp"/>
 
 </LinearLayout>
