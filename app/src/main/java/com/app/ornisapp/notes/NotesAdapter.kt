@@ -1,6 +1,7 @@
 package com.app.ornisapp.notes
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,7 @@ class NotesAdapter(private val context: Context,private val userlist:List<NotesD
         holder.idss.text=surrentlis.id
 
         holder.itemView.setOnClickListener {
+            val intent=Intent(context)
             Toast.makeText(context,"Clciking",Toast.LENGTH_LONG).show()
         }
 
