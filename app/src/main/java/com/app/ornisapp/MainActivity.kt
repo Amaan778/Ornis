@@ -33,12 +33,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var btn: Button
+    private lateinit var btn: LinearLayout
     private lateinit var total: TextView
     private lateinit var wastage: TextView
     private lateinit var profitvalue: TextView
-    private lateinit var waste: Button
-    private lateinit var purchasebtn: Button
+    private lateinit var waste: LinearLayout
+    private lateinit var purchasebtn: LinearLayout
     private lateinit var purchase: TextView
     private lateinit var pieChart: PieChart
     private lateinit var saleslinear:LinearLayout
