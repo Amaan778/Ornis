@@ -15,6 +15,7 @@ import com.app.ornisapp.add.AddData
 import com.app.ornisapp.add.Sale
 import com.app.ornisapp.purchase.Purchase
 import com.app.ornisapp.purchase.PurchaseData
+import com.app.ornisapp.recycler.PurchaseRecycler
 import com.app.ornisapp.recycler.SalesRecycler
 import com.app.ornisapp.recycler.WastageRecycler
 import com.app.ornisapp.salesgrap.ProfitGraph
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var saleslinear:LinearLayout
     private lateinit var wastedata:LinearLayout
     private lateinit var profitlinear:LinearLayout
+    private lateinit var purchaselinear:LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         saleslinear=findViewById(R.id.saleslinear)
         wastedata=findViewById(R.id.wastedata)
         profitlinear=findViewById(R.id.profitlinear)
+        purchaselinear=findViewById(R.id.purchaselinear)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
@@ -82,6 +85,10 @@ class MainActivity : AppCompatActivity() {
 
         profitlinear.setOnClickListener {
             startActivity(Intent(this,ProfitGraph::class.java))
+        }
+
+        purchaselinear.setOnClickListener {
+            startActivity(Intent(this,PurchaseRecycler::class.java))
         }
     }
 

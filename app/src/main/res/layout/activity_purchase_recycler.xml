@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,4 +8,60 @@
     android:layout_height="match_parent"
     tools:context=".recycler.PurchaseRecycler">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/theme">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purchase Data"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_20sdp"/>
+
+    </Toolbar>
+
+    <Spinner
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/monthSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:layout_margin="@dimen/_9sdp"
+        android:padding="@dimen/_9sdp"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:layout_below="@+id/monthSpinner"
+        android:id="@+id/noDataText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data not available for this month"
+        android:gravity="center"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="#FF0000"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_12sdp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/monthSpinner"
+        android:id="@+id/salesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/_3sdp" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="See Graph"
+        android:fontFamily="@font/poppins"
+        android:textSize="@dimen/_20sdp"
+        android:layout_margin="@dimen/_9sdp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
