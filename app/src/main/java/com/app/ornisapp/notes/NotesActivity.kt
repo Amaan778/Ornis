@@ -22,5 +22,7 @@ class NotesActivity : AppCompatActivity() {
             startActivity(Intent(this,Addnotes::class.java))
         }
 
+
+
     }
 }
