@@ -39,6 +39,7 @@ class Addnotes : AppCompatActivity() {
             db.collection("Notes").document(id).set(data)
                 .addOnSuccessListener {
                     Toast.makeText(this,"Notes saved",Toast.LENGTH_SHORT).show()
+                    clearFields()
                 }
                 .addOnFailureListener {
                     Toast.makeText(this,"Notes not saved",Toast.LENGTH_SHORT).show()
@@ -46,5 +47,9 @@ class Addnotes : AppCompatActivity() {
 
         }
 
+    }
+    private fun clearFields() {
+        title.text.clear()
+        description.text.clear()
     }
 }

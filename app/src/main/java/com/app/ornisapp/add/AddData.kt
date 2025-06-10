@@ -117,6 +117,7 @@ class AddData : AppCompatActivity() {
                     .setValue(sale)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Sale saved successfully", Toast.LENGTH_SHORT).show()
+                        clearFields()
                     }
                     .addOnFailureListener {
                         Toast.makeText(this, "Failed to save sale: ${it.message}", Toast.LENGTH_SHORT).show()
@@ -148,5 +149,16 @@ class AddData : AppCompatActivity() {
             }, year, month, day)
 
         datePickerDialog.show()
+    }
+    private fun clearFields() {
+        item_name.text.clear()
+        item_quantity.text.clear()
+        item_perunit.text.clear()
+        item_totalamount.setText("")
+        item_payment.text.clear()
+        item_profitpercent.text.clear()
+        item_profitamount.setText("")
+        date.text = ""
+        months.text = ""
     }
 }

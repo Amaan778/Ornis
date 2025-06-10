@@ -86,6 +86,7 @@ class PurchaseData : AppCompatActivity() {
             .setValue(purchase)
             .addOnSuccessListener {
                 Toast.makeText(this, "Purchase saved: ₹$totalAmount", Toast.LENGTH_SHORT).show()
+                clearFields()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed: ${it.message}", Toast.LENGTH_SHORT).show()
@@ -114,5 +115,14 @@ class PurchaseData : AppCompatActivity() {
             }, year, month, day)
 
         datePickerDialog.show()
+    }
+    private fun clearFields() {
+        item_name.text.clear()
+        item_quant.text.clear()
+        item_priceperunit.text.clear()
+        payment.setText("")
+        total_amounts.setText("")
+        date.text = ""
+        months.text = ""
     }
 }
