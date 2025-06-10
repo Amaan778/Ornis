@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.app.ornisapp.add.AddData
 import com.app.ornisapp.add.Sale
+import com.app.ornisapp.notes.NotesActivity
 import com.app.ornisapp.purchase.Purchase
 import com.app.ornisapp.purchase.PurchaseData
 import com.app.ornisapp.recycler.PurchaseRecycler
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var wastedata:LinearLayout
     private lateinit var profitlinear:LinearLayout
     private lateinit var purchaselinear:LinearLayout
+    private lateinit var notes:LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         wastedata=findViewById(R.id.wastedata)
         profitlinear=findViewById(R.id.profitlinear)
         purchaselinear=findViewById(R.id.purchaselinear)
+        notes=findViewById(R.id.notes)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
@@ -89,6 +92,10 @@ class MainActivity : AppCompatActivity() {
 
         purchaselinear.setOnClickListener {
             startActivity(Intent(this,PurchaseRecycler::class.java))
+        }
+
+        notes.setOnClickListener {
+            startActivity(Intent(this,NotesActivity::class.java))
         }
     }
 
