@@ -38,28 +38,109 @@
         android:orientation="vertical"
         android:background="@drawable/curved">
 
-
-
-        <Button
-            android:id="@+id/btn"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Data"
-            android:layout_margin="9dp"/>
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/wastage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add wastage"
-            android:layout_margin="9dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/purchasebtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Purchase"
-            android:layout_margin="9dp"/>
+                <LinearLayout
+                    android:id="@+id/btn"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/background">
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/add" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wastage"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/background">
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/wasteage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waste"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/purchasebtn"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/background">
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/purchase" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Purchase"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/background">
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/notesdata" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Notes"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
 
         <ScrollView
             android:layout_width="match_parent"
