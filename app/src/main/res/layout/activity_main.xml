@@ -56,7 +56,7 @@
             android:id="@+id/purchasebtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add wastage"
+            android:text="Add Purchase"
             android:layout_margin="9dp"/>
 
         <ScrollView
