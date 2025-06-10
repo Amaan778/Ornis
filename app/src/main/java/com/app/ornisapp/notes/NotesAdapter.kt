@@ -10,32 +10,41 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.app.ornisapp.R
 
-class NotesAdapter(private val context: Context,private val userlist:List<NotesData>) : RecyclerView.Adapter<NotesAdapter.Viewholder>() {
-    class Viewholder(itemview:View) : RecyclerView.ViewHolder(itemview) {
-        val title:TextView = itemview.findViewById(R.id.title)
-        val idss:TextView=itemview.findViewById(R.id.docid)
+class NotesAdapter(
+    private val context: Context,
+    private val notesList: List<NotesData>,
+    private val onLongPress: (NotesData) -> Unit
+) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val title: TextView = itemView.findViewById(R.id.title)
+        val idText: TextView = itemView.findViewById(R.id.docid)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.notes_adapter,parent,false)
-        return Viewholder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.notes_adapter, parent, false)
+        return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return userlist.size
-    }
+    override fun getItemCount(): Int = notesList.size
 
-    override fun onBindViewHolder(holder: Viewholder, position: Int) {
-        val surrentlis=userlist[position]
-        holder.title.text=surrentlis.title
-        holder.idss.text=surrentlis.id
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val note = notesList[position]
+        holder.title.text = note.title
+        holder.idText.text = note.id
 
+        // Short click opens detail
         holder.itemView.setOnClickListener {
-            val intent=Intent(context,NotesDetail::class.java)
-            intent.putExtra("id",userlist[position].id)
+            val intent = Intent(context, NotesDetail::class.java)
+            intent.putExtra("id", note.id)
             context.startActivity(intent)
-            Toast.makeText(context,"Clciking",Toast.LENGTH_LONG).show()
         }
 
+        // Long click shows delete dialog
+        holder.itemView.setOnLongClickListener {
+            onLongPress(note)
+            true
+        }
     }
 }
