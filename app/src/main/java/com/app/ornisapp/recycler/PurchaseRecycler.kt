@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.ornisapp.R
 import com.app.ornisapp.purchase.Purchase
+import com.app.ornisapp.salesgrap.PurchaseGraphData
 import com.app.ornisapp.salesgrap.Wastegraphdata
 import com.app.ornisapp.wastage.Waste
 import com.google.firebase.database.DataSnapshot
@@ -42,7 +43,7 @@ class PurchaseRecycler : AppCompatActivity() {
         graph=findViewById(R.id.save)
 
         graph.setOnClickListener {
-            startActivity(Intent(this, Wastegraphdata::class.java))
+            startActivity(Intent(this, PurchaseGraphData::class.java))
         }
 
         adapter = PurchaseAdapter(salesList)
