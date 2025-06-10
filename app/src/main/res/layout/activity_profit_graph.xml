@@ -8,17 +8,35 @@
     android:layout_height="match_parent"
     tools:context=".salesgrap.ProfitGraph">
 
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/theme">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profit graph chart"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_20sdp"/>
+
+    </Toolbar>
+
     <Spinner
         android:id="@+id/timeFilterSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp" />
+        android:background="@drawable/background"
+        android:layout_margin="@dimen/_9sdp"
+        android:padding="@dimen/_9sdp"
+        android:entries="@array/time_filters" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barChart"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_margin="16dp" />
+        android:layout_margin="@dimen/_9sdp"/>
 
 
 </LinearLayout>
