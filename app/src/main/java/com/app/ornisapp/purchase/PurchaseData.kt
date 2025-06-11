@@ -78,10 +78,7 @@ class PurchaseData : AppCompatActivity() {
             month = month
         )
 
-        FirebaseDatabase.getInstance().reference
-            .child("purchase")
-            .child(month)
-            .child(formattedDate)
+        FirebaseDatabase.getInstance().reference.child("purchase").child(month).child(formattedDate)
             .push()
             .setValue(purchase)
             .addOnSuccessListener {
@@ -91,6 +88,8 @@ class PurchaseData : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "Failed: ${it.message}", Toast.LENGTH_SHORT).show()
             }
+
+//        comment here
     }
 
     private fun showDatePicker() {
