@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var profitlinear:LinearLayout
     private lateinit var purchaselinear:LinearLayout
     private lateinit var notes:LinearLayout
+    private lateinit var linear:LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         profitlinear=findViewById(R.id.profitlinear)
         purchaselinear=findViewById(R.id.purchaselinear)
         notes=findViewById(R.id.notes)
+        linear=findViewById(R.id.linear)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
