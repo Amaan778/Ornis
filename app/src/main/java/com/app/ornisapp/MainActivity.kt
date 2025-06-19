@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         profitlinear=findViewById(R.id.profitlinear)
         purchaselinear=findViewById(R.id.purchaselinear)
         notes=findViewById(R.id.notes)
-        linear=findViewById(R.id.mains_linear)
+        linear=findViewById(R.id.mains_linears)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
