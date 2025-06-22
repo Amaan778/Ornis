@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var purchaselinear:LinearLayout
     private lateinit var notes:LinearLayout
     private lateinit var linear:LinearLayout
+    private lateinit var tool:Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         purchaselinear=findViewById(R.id.purchaselinear)
         notes=findViewById(R.id.notes)
         linear=findViewById(R.id.linear)
+        tool=findViewById(R.id.toolbar)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
