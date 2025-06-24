@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         purchaselinear=findViewById(R.id.purchaselinear)
         notes=findViewById(R.id.notes)
         linear=findViewById(R.id.linear)
-        tool=findViewById(R.id.toolbar)
+        tool=findViewById(R.id.toolbar_layout)
 
         btn.setOnClickListener {
             startActivity(Intent(this, AddData::class.java))
