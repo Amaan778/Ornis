@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <Toolbar
-            android:id="@+id/toolbar_layout"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/theme">
