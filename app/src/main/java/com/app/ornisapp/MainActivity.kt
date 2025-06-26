@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         profitlinear=findViewById(R.id.profitlinear)
         purchaselinear=findViewById(R.id.purchaselinear)
         notes=findViewById(R.id.notes)
-        linear=findViewById(R.id.linear)
+        linear=findViewById(R.id.linear_layout)
         tool=findViewById(R.id.toolbar)
 
         btn.setOnClickListener {
