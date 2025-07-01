@@ -7,7 +7,7 @@
     android:background="@color/theme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/linear_layout"
+    android:id="@+id/linear"
     tools:context=".MainActivity">
 
     <LinearLayout
